@@ -21,12 +21,12 @@
 -->
 <html>
     <head>
-		<gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
-        <meta charset="utf-8" />
+		<meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
     </head>
@@ -36,23 +36,34 @@
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready
-				Hi adham
+				Hi adham v 0.0
 				<input type="button" onclick='scan_f();' value=' scan code now '>
 				<script>
-				function scan_f(){
-				alert('scan should be done ');
 				cordova.plugins.barcodeScanner.scan(
-    function (result) {
-        alert("We got a barcode\n" +
-              "Result: " + result.text + "\n" +
-              "Format: " + result.format + "\n" +
-              "Cancelled: " + result.cancelled);
-    },
-    function (error) {
-        alert("Scanning failed: " + error);
-    }
-);
-alert('scan should be done ');
+      function (result) {
+          alert("We got a barcode 0 \n" +
+                "Result 0: " + result.text + "\n" +
+                "Format 0: " + result.format + "\n" +
+                "Cancelled 0: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+				function scan_f(){
+				alert('scan should be start ');
+cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+alert('scan should be done 2');
 }
 				</script>
 				</p>
